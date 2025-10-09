@@ -1,27 +1,44 @@
 <?php
 
+use App\Models\Berita;  
+
 use Illuminate\Support\Facades\Route;
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider and all of them will
-| be assigned to the "web" middleware group. Make something great!
-|
-*/
-
 Route::get('/', function () {
-    return view('home');
+    return view('home', [
+        "title" => "home",
+    ]);
 });
+
 Route::get('/profile', function () {
-    return view('halaman profile');
+    return view('profile',[
+        "title" => "profile",
+        "nama" => "markonah",
+        "nohp" => "00857326329",
+        "foto" => "images/koko.png",
+    ]);
 });
+
 Route::get('/berita', function () {
-    return view('halaman berita');
+
+    
+    return view('berita', [
+        "title" => "berita",
+        "beritas" => Berita ::ambildata(),
+    ]);
+});
+
+Route::get('/berita/{slug}', function ($slugp) {
+    
+   
+    return view('singleberita', [
+        "title" => "berita",
+        "new_berita" => Berita ::caridata($slugp),
+    ]);
 });
 Route::get('/contact', function () {
-    return view('halaman kontak');
+    return view('contact', [
+        "title" => "contact",
+        
+    ]);
 });
