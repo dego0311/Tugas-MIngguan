@@ -6,13 +6,12 @@
 
 <h1>Berita</h1>
 
-@foreach ( $data_berita as $berita )
+@foreach ($beritas as $berita)
 
-<article class="mt-5">
+<article class="mb-5">
 
-    <a href = "/berita/{{ $berita['slug']}}">
-        <h2>{{ $berita['judul'] }}</h2>
-</a>
+    <a href = "/berita/{{ $berita['slug'] }}"><h2>{{ $berita['judul'] }}</h2></a>
+
     <h3>{{ $berita['penulis'] }}</h3>
 
     <p>{{ $berita['konten'] }}</p>
@@ -21,8 +20,8 @@
 
 
 
+@endforeach
 
-    @endforeach
 
-    
+
 @endsection

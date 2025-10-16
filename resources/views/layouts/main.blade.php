@@ -30,6 +30,9 @@
                 <li class="nav-item">
                     <a class="nav-link disabled" href="/contact">Contact</a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/mahasiswa"> Data Mahasiswa</a>
+                </li>
             </ul>
         </div>
     </nav>

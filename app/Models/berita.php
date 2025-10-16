@@ -9,18 +9,25 @@ class Berita extends Model
 {
     private static $data_berita = [
         [
-            "judul" => "Unimus Mart Laris Manis",
-            "slug" => "unimus-mart-laris-manis",
-            "penulis" => "anjo",
-            "konten" => "pembunuhan tanpa busana daerah ciliwangi",
+            "judul" => "Kopi Gratis Di Unimus",
+            "slug" => "kopi-gratis-di-unimus",
+            "penulis" => "Naufal Dhegondo",
+            "konten" => "Program Kopi Gratis Di Unimus Hanya Menunjukan KTM Saja",
         ],
         [
-            "judul" => "Newss Unimus 2",
-            "slug"=> "newss-unimus-2",
-            "penulis" => "jamno",
-            "konten" => "menangis meratapi nasib, seorang pemuda ditemukan sedang melahirkan disekitar lampu merah ciliwung",
+            "judul" => "Berita Makanan Gratis",
+            "slug"=> "berita-makanan-gratis",
+            "penulis" => "Rahmah",
+            "konten" => "Program Makanan Gratis Di Unimus Hanya Menunjukan KTM Saja",
+        ],
+        [
+            "judul" => "Teknologi Informasi DiUnimus Menjadi Prodi Terbaik Di Tahun 2025",
+            "slug"=> "teknologi-informasi-diunimus-menjadi-prodi-terbaik-di-tahun-2025",
+            "penulis" => "Suad",
+            "konten" => "Prodi Teknlogoi Informasi DiUnimus Menjadi Prodi Terbaik Di Tahun 2025",
         ],
     ];
+
     public static function ambildata()
     {
         return self::$data_berita;
@@ -28,15 +35,17 @@ class Berita extends Model
 
     public static function caridata($slug)
     {
-        $data_beritas = self::$data_berita;
+        $data_beritas = Self::$data_berita;
+
         $new_berita = [];
-    foreach($data_berita as $berita)
-    {
-        if($berita["slug"] === $slug)
+        foreach($data_beritas as $berita) 
         {
-            $new_berita = $berita;
+            if($berita["slug"] === $slug)
+            {
+                $new_berita = $berita;
+            }
         }
-    }
-    return $new_berita;
+
+        return $new_berita;
     }
 }
