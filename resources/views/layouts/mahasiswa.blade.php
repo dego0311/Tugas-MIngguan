@@ -1,4 +1,4 @@
-@extends('layouts.main')
+@extends(view: 'layouts.main')
 
 @section(section: 'content')
     <h1>Data Mahasiswa</h1>

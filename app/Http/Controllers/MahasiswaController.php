@@ -3,13 +3,12 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Mahasiwa;
 
 class MahasiswaController extends Controller
 {
-    public function index(): Factory|View
+    public function index() 
     {
-         return view('mahasiswa', data: [
+          return view('mahasiswa', [
             "title" => "Data Mahasiswa"
         ]);
     }
