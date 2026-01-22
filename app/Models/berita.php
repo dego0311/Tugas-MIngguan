@@ -7,45 +7,41 @@ use Illuminate\Database\Eloquent\Model;
 
 class Berita extends Model
 {
-    private static $data_berita = [
+       private static $data_berita = [
         [
-            "judul" => "Kopi Gratis Di Unimus",
-            "slug" => "kopi-gratis-di-unimus",
-            "penulis" => "Naufal Dhegondo",
-            "konten" => "Program Kopi Gratis Di Unimus Hanya Menunjukan KTM Saja",
+        "judul" => "Bugatti",
+        "slug" => "Bugatti",
+        "penulis" => "Chiron",
+        "konten" => "Chiron adalah Hypercar dengan performa luar biasa yang dapat memecahkan rekor dunia."
         ],
+        
         [
-            "judul" => "Berita Makanan Gratis",
-            "slug"=> "berita-makanan-gratis",
-            "penulis" => "Rahmah",
-            "konten" => "Program Makanan Gratis Di Unimus Hanya Menunjukan KTM Saja",
-        ],
-        [
-            "judul" => "Teknologi Informasi DiUnimus Menjadi Prodi Terbaik Di Tahun 2025",
-            "slug"=> "teknologi-informasi-diunimus-menjadi-prodi-terbaik-di-tahun-2025",
-            "penulis" => "Suad",
-            "konten" => "Prodi Teknlogoi Informasi DiUnimus Menjadi Prodi Terbaik Di Tahun 2025",
-        ],
+        "judul" => "Koenigsegg",
+        "slug" => "Koenigsegg",
+        "penulis" => "Agera",
+        "konten" => "Agera adalah mobil supercar dari Koenigsegg yang dikenal dengan kecepatan dan teknologi canggihnya."
+        ]
     ];
 
     public static function ambildata()
     {
-        return self::$data_berita;
+        return Self:: $data_berita;
     }
 
-    public static function caridata($slug)
+    public static function caridata ($slug)
     {
-        $data_beritas = Self::$data_berita;
+        $data_beritas = Self:: $data_berita;
 
-        $new_berita = [];
-        foreach($data_beritas as $berita) 
+            $new_berita = [];
+    foreach($data_beritas as $berita)
+    {
+        if ($berita["slug"] === $slug)
         {
-            if($berita["slug"] === $slug)
-            {
-                $new_berita = $berita;
-            }
+            $new_berita = $berita;
         }
+    }
 
-        return $new_berita;
+    return $new_berita;
+
     }
 }

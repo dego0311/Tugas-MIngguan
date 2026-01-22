@@ -9,57 +9,54 @@ class MahasiswaController extends Controller
 {
     public function index()
     {
-      
+
         $data = Mahasiswa::all();
 
-        return view('mahasiswa',compact('data'),[
+       
+        return view('Mahasiswa', compact('data'),[
             "title" => "Data Mahasiswa",
-           
+            
         ]);
     }
-
     public function tambahmahasiswa()
     {
         return view('tambahmahasiswa',[
-            "title" => "Tambah Mahasiswa",
+            "title" => "Tambah Data Mahasiswa",
         ]);
     }
 
     public function insertdata(Request $request)
     {
+        $data = Mahasiswa::create($request->all());
 
-        /// insert data ke database
-       Mahasiswa::create($request->all());
-        
-       return redirect()->route('mahasiswa')->with('success', 'Data Berhasil Ditambahkan!');
+        return redirect()->route('datamahasiswa')->with('success', 'Data Berhasil Di Tambahkan');
     }
 
     public function tampildata($id)
     {
         $data = Mahasiswa::find($id);
 
-        return view("edit",[
-            "title" => "Edit Data Mahasiswa",
+        return view("edit", [
+            "title" => "Edit Mahasiswa",
             "data" => $data,
         ]);
     }
-
 
     public function editdata(Request $request, $id)
     {
         $data = Mahasiswa::find($id);
 
-        $data->update($request->all(),);
+        $data->update($request->all());
 
-        return redirect()->route('mahasiswa')->with('success', 'Data Berhasil Diedit!');
+        return redirect()->route('datamahasiswa')->with('success', 'Data Berhasil Di Edit!');
     }
 
-    public function deletdata($id)
-    {
-        $data = Mahasiswa::find($id);
+public function delete($id)
+{
+    $data = Mahasiswa::find($id);
+    $data->delete();
+    
+    return redirect('/datamahasiswa')->with('success', 'Data Berhasil Dihapus!');
+}
 
-        $data->delete();
-
-        return redirect()->route('mahasiswa')->with('success', 'Data Berhasil Dihapus!');
-    }   
 }

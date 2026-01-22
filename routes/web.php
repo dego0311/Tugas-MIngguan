@@ -1,7 +1,7 @@
 <?php
 
-use App\Http\Controllers\BeritaController;
 use App\Http\Controllers\MahasiswaController;
+use App\Http\Controllers\BeritaController;
 use App\Models\Berita;
 use Illuminate\Support\Facades\Route;
 
@@ -13,30 +13,39 @@ Route::get('/', function () {
 
 Route::get('/profile', function () {
     return view('profile',[
-        "title" => "profile",
-        "nama" => "markonah",
-        "nohp" => "00857326329",
-        "foto" => "images/koko.png",
+        "title" => "Profile",
+        "nama" => "Fathur Rozaki Raihan Syafaat",
+        "nohp" => "085711294539",
+        "foto" => "images/mim.jpeg",
     ]);
 });
 
 Route::get('/berita', [BeritaController::class, 'index']);
-Route::get('/berita/{slug}', [BeritaController::class, 'tampildata']);
+Route::get('/berita/{slug}', [BeritaController::class,'tampildata']);
 
-Route::get('/mahasiswa', [MahasiswaController::class, 'index'])->name('mahasiswa');
-Route::get('/tambahmahasiswa', [MahasiswaController::class, 'tambahmahasiswa'])->name('tambahmahasiswa');
+// Authentication routes
+Route::get('/login', [\App\Http\Controllers\Auth\LoginController::class, 'showLoginForm'])->name('login');
+Route::post('/login', [\App\Http\Controllers\Auth\LoginController::class, 'login'])->name('login.attempt');
+Route::post('/logout', [\App\Http\Controllers\Auth\LoginController::class, 'logout'])->name('logout');
+Route::get('/register', [\App\Http\Controllers\Auth\RegisterController::class, 'showRegistrationForm'])->name('register');
+Route::post('/register', [\App\Http\Controllers\Auth\RegisterController::class, 'register'])->name('register.attempt');
 
-Route::post('/insertdata', [MahasiswaController::class, 'insertdata'])->name('insertdata')->name('insertdata');
+// Protected mahasiswa routes
+Route::middleware('auth')->group(function () {
+    Route::get('/datamahasiswa', [MahasiswaController::class,'index'])->name('datamahasiswa');
+Route::get('/tambahmahasiswa', [MahasiswaController::class, 'tambahmahasiswa'])->name('mahasiswa.tambah');
+Route::post('/insertdata', [MahasiswaController::class, 'insertdata'])->name('insertdata');
 
-Route::get('/tampildata/{id}', [MahasiswaController::class, 'tampildata'])->name('tampildata');
-Route::post('/editdata/{id}', [MahasiswaController::class, 'editdata'])->name('editdata')->name('editdata');
 
-Route::get('/deletedata/{id}', [MahasiswaController::class, 'deletdata'])->name('deletedata')->name('deletedata');
+Route::get('/tampildata/{id}',[MahasiswaController::class, 'tampildata'])->name('tampildata');
 
+Route::post('/editdata/{id}',[MahasiswaController::class, 'editdata'])->name('editdata');
+
+Route::get('/delete/{id}', [MahasiswaController::class, 'delete'])->name('mahasiswa.delete');
+});
 
 Route::get('/contact', function () {
     return view('contact', [
         "title" => "contact",
-        
     ]);
 });
