@@ -47,7 +47,7 @@
 
                     <p class="mb-2">
                         📍 <strong>Alamat:</strong><br>
-                        jl soedirman palembang indonesia
+                        jl sudirman palembang indonesia
                     </p>
 
                     <p class="mb-2">
@@ -65,7 +65,7 @@
                     <!-- MAPS -->
                     <div class="map-box mt-3">
                         <iframe 
-                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3954.5634095156167!2d111.39078842346897!3d-7.41676499275922!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e79e7aec90c1709%3A0x3191087af4043527!2sNgawi%2C%20East%20Java%2C%20Indonesia!5e0!3m2!1sen!2sid!4v1642835924567"
+                            src="https://www.google.com/maps/place/Jl.+Jend.+Sudirman,+Kota+Palembang,+Sumatera+Selatan/@-2.9527799,104.7317875,17z/data=!3m1!4b1!4m6!3m5!1s0x2e3b760add4ceb7f:0x1a894a3de39ec2cf!8m2!3d-2.9527853!4d104.7343624!16s%2Fg%2F1hm3705t4?entry=ttu&g_ep=EgoyMDI2MDExOS4wIKXMDSoKLDEwMDc5MjA2N0gBUAM%3D"
                             width="100%" height="250"
                             style="border:0; border-radius:12px;"
                             allowfullscreen=""

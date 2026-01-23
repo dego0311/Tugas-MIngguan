@@ -14,9 +14,9 @@ Route::get('/', function () {
 Route::get('/profile', function () {
     return view('profile',[
         "title" => "Profile",
-        "nama" => "Fathur Rozaki Raihan Syafaat",
-        "nohp" => "085711294539",
-        "foto" => "images/mim.jpeg",
+        "nama" => "Naufal Dhegondo Dempo Putra",
+        "nohp" => "085609644440",
+        "foto" => "images/dego.jpeg",
     ]);
 });
 
